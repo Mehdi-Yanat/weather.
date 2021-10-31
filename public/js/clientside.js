@@ -20,7 +20,7 @@ form.addEventListener('submit' , (e)=>{
                 $('.weather').text(data.weatherStack.Weather) ;
                 $('.location').text(data.address) ;
                 $('.localtime').text(data.weatherStack.observationtime) ;
-                $('.temp1').text( data.weatherStack.temperature + "°") ;
+                $('.temp').text( data.weatherStack.temperature + "°") ;
                 $('.wind1').text(data.weatherStack.windSpeed + " km/h") ;
                 $('.wind-degree').text( data.weatherStack.windDegree +" %") ;
                 $('.pression').text( data.weatherStack.pressure + " mb") ;
@@ -30,7 +30,7 @@ form.addEventListener('submit' , (e)=>{
                 $('.day').text(data.weatherStack.isDay) ;
                 $('.name').text(data.weatherStack.name) ;
                 $('.country-place').text(data.weatherStack.country) ;
-                $('.p2').text(data.weatherStack.region) ;
+                $('.p1').text(data.weatherStack.region) ;
                 console.log(data);
                 return errorInput.textContent = ""
             }
