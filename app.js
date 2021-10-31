@@ -3,7 +3,7 @@ const path = require('path')
 const app = express()
 const mapBox = require('./src/map')
 const weatherStack = require('./src/weather')
-
+const port = process.env.PORT || 3000
 
 const Directory = path.join(__dirname , './public')
 const viewsDirectory = path.join(__dirname , './public/views')
@@ -44,6 +44,6 @@ app.get('/weather' , (req , res ) => {
      
 })
 
-app.listen(3000 , ()=> {
+app.listen(port , ()=> {
     console.log("started at port "+ 3000);
 })
