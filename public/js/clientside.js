@@ -19,6 +19,7 @@ form.addEventListener('submit' , (e)=>{
                 errorInput.textContent = data.error;
             }
             else{
+                errorInput.textContent = ""
                 $('.weather').text(data.weatherStack.Weather) ;
                 $('.location').text(data.address) ;
                 $('.localtime').text(data.weatherStack.observationtime) ;
@@ -78,7 +79,7 @@ form2.addEventListener('submit' , (e)=>{
             if (data.error) {
                 errorInput.textContent = data.error;
             }else{
-              
+                errorInput.textContent = ""
                 $('.weather').text(data.weatherStack.Weather) ;
                 $('.location').text(data.address) ;
                 $('.localtime').text(data.weatherStack.observationtime) ;
