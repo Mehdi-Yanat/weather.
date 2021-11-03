@@ -1,10 +1,13 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900);
-
+@import url(https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css);
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 $color1: #C8DAE6;
 $color2: white;
 $color3: #B8B8B8;
 $color4: #FFCD41;
 $color5: #2092A9;
+
+
 
 body {
     background-color: lighten($color1, 10%);
@@ -59,6 +62,21 @@ body {
         left: 35px;
         animation: title-appear 1s ease-out 500ms forwards;
     }
+    button{
+        cursor: pointer;
+    }
+    .weatherIcon{
+        transform: translateX(80px);
+        i{
+            transform: scale(5);
+           
+          padding-top: 30px;
+        }
+      }
+}
+
+.error{
+    color: red;
 }
 
 .weather-icon {
@@ -71,13 +89,7 @@ body {
     animation: weather-icon-move 5s ease-in-out infinite;
 }
 
-.sun { 
-    display: flex;
-    background: $color4; 
-	border-radius: 50%; 
-	box-shadow: rgba(255,255,0,0.1) 0 0 0 4px;
-    animation: light 800ms ease-in-out infinite alternate, weather-icon-move 5s ease-in-out infinite;
-}
+
 
 @keyframes light {
     from {
@@ -88,35 +100,6 @@ body {
     }
 }
 
-.cloud { 
-    display: flex;
-    margin-right:60px;
-    background: darken($color1, 5%); 
-	border-radius: 20px; 
-    width: 25px;
-    height: 25px;
-    box-shadow: 
-		darken($color1, 5%) 24px -6px 0 2px, 
-		darken($color1, 5%) 10px 5px 0 5px, 
-		darken($color1, 5%) 30px 5px 0 2px, 
-        darken($color1, 5%) 11px -8px 0 -3px, 
-        darken($color1, 5%) 25px 11px 0 -1px;
-    
-    
-    &:after {
-        content: "";
-        position: absolute;
-        border-radius: 10px;
-        background-color: transparent;
-        width: 4px;
-        height: 12px;
-        left: 0;
-        top: 30px;
-        transform: rotate(30deg);
-        
-        animation: rain 800ms ease-in-out infinite alternate;
-    }
-}
 
 @keyframes rain {
     from {
@@ -190,9 +173,20 @@ header{
     nav{
         width: 100%;
         display: flex;
+        flex-direction: column;
+        gap: 10px;
         align-items: center;
         justify-content: center;
+        text-align: center;
         color: $color3;
+        h1{
+            font-family: 'Bebas Neue', cursive;
+            text-transform: uppercase;
+        }
+        .error{
+            font-family: 'Bebas Neue', cursive;
+            color: red;
+        }
     }
 }
 form{
@@ -238,15 +232,38 @@ section{
     justify-content: space-between;
     padding: 0 20px;
     display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     border-radius: 20px;
     box-shadow: 0px 0px 25px 1px rgba(50, 50, 50, 0.1);
     width: 100%;
-    height: 300px;
+    height: 450px;
     background-color: white;
     margin-top: 10px; 
-    .container2{
+    .container1{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         height: 100%;
+        .d-flex{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            gap: 10px;
+        }
+    }
+
+    .container2{
+        width: 50%;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        flex-direction: column;
       text-align: right;
     }
 }

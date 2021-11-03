@@ -14,7 +14,7 @@ const weatherStack = (latitude , longitude , callback )=> {
             callback("check your information please")
         }
         else{
-            callback(undefined , {
+            callback(undefined, {
                                  observationtime : body.current.observation_time,
                                    localtime:body.location.localtime,
                                    temperature:body.current.temperature,

@@ -1,4 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css);
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 body {
   background-color: #ebf2f6;
 }
@@ -75,6 +77,25 @@ body {
           animation: title-appear 1s ease-out 500ms forwards;
 }
 
+.weather-card button {
+  cursor: pointer;
+}
+
+.weather-card .weatherIcon {
+  -webkit-transform: translateX(80px);
+          transform: translateX(80px);
+}
+
+.weather-card .weatherIcon i {
+  -webkit-transform: scale(5);
+          transform: scale(5);
+  padding-top: 30px;
+}
+
+.error {
+  color: red;
+}
+
 .weather-icon {
   position: relative;
   width: 50px;
@@ -84,18 +105,6 @@ body {
   margin: 40px 40px 0 0;
   -webkit-animation: weather-icon-move 5s ease-in-out infinite;
           animation: weather-icon-move 5s ease-in-out infinite;
-}
-
-.sun {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  background: #FFCD41;
-  border-radius: 50%;
-  -webkit-box-shadow: rgba(255, 255, 0, 0.1) 0 0 0 4px;
-          box-shadow: rgba(255, 255, 0, 0.1) 0 0 0 4px;
-  -webkit-animation: light 800ms ease-in-out infinite alternate, weather-icon-move 5s ease-in-out infinite;
-          animation: light 800ms ease-in-out infinite alternate, weather-icon-move 5s ease-in-out infinite;
 }
 
 @-webkit-keyframes light {
@@ -118,34 +127,6 @@ body {
     -webkit-box-shadow: rgba(255, 255, 0, 0.2) 0 0 0 17px;
             box-shadow: rgba(255, 255, 0, 0.2) 0 0 0 17px;
   }
-}
-
-.cloud {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin-right: 60px;
-  background: #b6cede;
-  border-radius: 20px;
-  width: 25px;
-  height: 25px;
-  -webkit-box-shadow: #b6cede 24px -6px 0 2px, #b6cede 10px 5px 0 5px, #b6cede 30px 5px 0 2px, #b6cede 11px -8px 0 -3px, #b6cede 25px 11px 0 -1px;
-          box-shadow: #b6cede 24px -6px 0 2px, #b6cede 10px 5px 0 5px, #b6cede 30px 5px 0 2px, #b6cede 11px -8px 0 -3px, #b6cede 25px 11px 0 -1px;
-}
-
-.cloud:after {
-  content: "";
-  position: absolute;
-  border-radius: 10px;
-  background-color: transparent;
-  width: 4px;
-  height: 12px;
-  left: 0;
-  top: 30px;
-  -webkit-transform: rotate(30deg);
-          transform: rotate(30deg);
-  -webkit-animation: rain 800ms ease-in-out infinite alternate;
-          animation: rain 800ms ease-in-out infinite alternate;
 }
 
 @-webkit-keyframes rain {
@@ -277,13 +258,29 @@ header nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  text-align: center;
   color: #B8B8B8;
+}
+
+header nav h1 {
+  font-family: 'Bebas Neue', cursive;
+  text-transform: uppercase;
+}
+
+header nav .error {
+  font-family: 'Bebas Neue', cursive;
+  color: red;
 }
 
 form {
@@ -366,18 +363,73 @@ section {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 100%;
   border-radius: 20px;
   -webkit-box-shadow: 0px 0px 25px 1px rgba(50, 50, 50, 0.1);
           box-shadow: 0px 0px 25px 1px rgba(50, 50, 50, 0.1);
   width: 100%;
-  height: 300px;
+  height: 450px;
   background-color: white;
   margin-top: 10px;
 }
 
-.box2 .container2 {
+.box2 .container1 {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   height: 100%;
+}
+
+.box2 .container1 .d-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: 10px;
+}
+
+.box2 .container2 {
+  width: 50%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   text-align: right;
 }
 
